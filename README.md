@@ -4,7 +4,7 @@ Códigos desenvolvidos para o teste da Netshoes. Módulos:
 
   - CepService
   - CrudService
-  - Stream
+  - JStream
 
 Instruções específicas:
 ## CepService
@@ -40,14 +40,32 @@ curl -H "Accept: application/json" -H "Content-Type: application/json"  -X GET h
 curl -H "Accept: application/json" -H "Content-Type: application/json"  -X DELETE http://host:port/crudservice/api/id
 ```
 
-## Stream
-//TODO
+## JStream
+### Instalação
+Para instalar basta executar o comando abaixo com o Maven na pasta do projeto:
+```sh
+cd project/folder
+mvn clean install
+```
+
+### Execução
+
+Após o build do Maven, para executar basta executar o comando abaixo na pasta do target gerado:
+```sh
+java -jar jstream-1.0.0-SNAPSHOT.jar CHAR_SEQUENCE
+```
+onde CHAR_SEQUENCE será substituído pela lista de chars, exemplo:
+```sh
+java -jar jstream-1.0.0-SNAPSHOT.jar aaAAbbBB
+```
+
 
 ## Misc
 
 Acelerado por:
 
 * [Postman] - Supercharge your API workflow
+* [Maven] - Simplify the build processes
 
 License
 ----
@@ -56,3 +74,4 @@ GNU PUBLIC LICENSE
 **André Mafra**
 
 [Postman]:https://www.getpostman.com/
+[Maven]:https://maven.apache.org/

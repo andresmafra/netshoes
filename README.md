@@ -1,115 +1,58 @@
-# Netshoes Tests
+# Netshoes Test
 
 Códigos desenvolvidos para o teste da Netshoes. Módulos:
 
   - CepService
   - CrudService
-  - Other
+  - Stream
 
 Instruções específicas:
-### CepService
+## CepService
 Efetuar o build com o Maven (clean install), deployar no servidor de preferência (eg. Tomcat) e após isso executá-lo conforme abaixo:
 
 ```sh
 curl -H "Accept: application/json" -H "Content-Type: application/json"  -X POST -d '{"id":"06753160"}' http://host:port/cepservice/api/
 ```
 
-### CrudService
+## CrudService
+Efetuar o build com o Maven (clean install), deployar no servidor de preferência (eg. Tomcat) e após isso executá-lo conforme exemplos abaixo:
 
-Dillinger uses a number of open source projects to work properly:
-
-* [AngularJS] - HTML enhanced for web apps!
-* [Ace Editor] - awesome web-based text editor
-* [Marked] - a super fast port of Markdown to JavaScript
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* [Gulp] - the streaming build system
-* [keymaster.js] - awesome keyboard handler lib by [@thomasfuchs]
-* [jQuery] - duh
-
-### Installation
-
-You need Gulp installed globally:
+#### Create
 
 ```sh
-$ npm i -g gulp
+curl -H "Accept: application/json" -H "Content-Type: application/json"  -X POST -d '{"rua":"Rua 2","numero":"02","cep":"06753161","cidade":"Abc","estado":"RJ"}' http://host:port/crudservice/api/
 ```
+#### Update
 
 ```sh
-$ git clone [git-repo-url] dillinger
-$ cd dillinger
-$ npm i -d
-$ mkdir -p public/files/{md,html,pdf}
-$ gulp build --prod
-$ NODE_ENV=production node app
+curl -H "Accept: application/json" -H "Content-Type: application/json"  -X PUT -d '{"id":"1f743aa3-1df3-4a79-8666-7e820fb4a3c6","rua":"Rua 20","numero":"02","cep":"06753163","bairro":null,"cidade":"aaaaa","estado":"BA","complemento":null}' http://host:port/crudservice/api/
 ```
 
-### Plugins
+#### Get
 
-Dillinger is currently extended with the following plugins
-
-* Dropbox
-* Github
-* Google Drive
-* OneDrive
-
-Readmes, how to use them in your own application can be found here:
-
-* [plugins/dropbox/README.md](https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md)
-* [plugins/github/README.md](https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md)
-* [plugins/googledrive/README.md](https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md)
-* [plugins/onedrive/README.md](https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md)
-
-### Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantanously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
 ```sh
-$ node app
+curl -H "Accept: application/json" -H "Content-Type: application/json"  -X GET -d http://host:port/crudservice/api/id
 ```
 
-Second Tab:
+#### Delete
+
 ```sh
-$ gulp watch
+curl -H "Accept: application/json" -H "Content-Type: application/json"  -X DELETE -d http://host:port/crudservice/api/id
 ```
 
-(optional) Third:
-```sh
-$ karma start
-```
+## Stream
+//TODO
 
-### Todo's
+## Misc
 
- - Write Tests
- - Rethink Github Save
- - Add Code Comments
- - Add Night Mode
+Acelerado por:
+
+* [Postman] - Supercharge your API workflow
 
 License
 ----
+GNU PUBLIC LICENSE
 
-MIT
+**André Mafra**
 
-
-**Free Software, Hell Yeah!**
-
-[john gruber]:http://daringfireball.net/
-[@thomasfuchs]:http://twitter.com/thomasfuchs
-[1]:http://daringfireball.net/projects/markdown/
-[marked]:https://github.com/chjj/marked
-[Ace Editor]:http://ace.ajax.org
-[node.js]:http://nodejs.org
-[Twitter Bootstrap]:http://twitter.github.com/bootstrap/
-[keymaster.js]:https://github.com/madrobby/keymaster
-[jQuery]:http://jquery.com
-[@tjholowaychuk]:http://twitter.com/tjholowaychuk
-[express]:http://expressjs.com
-[AngularJS]:http://angularjs.org
-[Gulp]:http://gulpjs.com
+[Postman]:https://www.getpostman.com/

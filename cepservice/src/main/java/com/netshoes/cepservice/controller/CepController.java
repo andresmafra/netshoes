@@ -29,9 +29,6 @@ public class CepController {
 	@Autowired
 	private CepService cepService;
 
-	@Autowired
-	private ValidationUtil validationUtil;
-
 	/**
 	 * Maximum retry quantity
 	 */
@@ -55,7 +52,7 @@ public class CepController {
 	Cep getCep(@RequestBody Cep cepIn) throws InvalidCepException {
 
 		// Validate the input cep
-		validationUtil.validateCEP(cepIn);
+		ValidationUtil.validateCEP(cepIn);
 
 		// Ge the cep in db and return
 		return getCepWithRetry(cepIn.getId(), 1);

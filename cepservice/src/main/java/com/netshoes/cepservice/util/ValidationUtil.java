@@ -16,13 +16,19 @@ import com.netshoes.cepservice.model.Cep;
 public class ValidationUtil {
 
 	/**
+	 * Avoid instantiation
+	 */
+	private ValidationUtil() {
+	}
+
+	/**
 	 * Simple validation the cep input
 	 * 
 	 * @param Cep
 	 *            obj
 	 * @throws InvalidCepException
 	 */
-	public void validateCEP(final Cep cep) throws InvalidCepException {
+	public static final void validateCEP(final Cep cep) throws InvalidCepException {
 
 		if (cep == null) {
 			throw new InvalidCepException("invalid cep");

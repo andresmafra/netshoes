@@ -23,10 +23,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import com.netshoes.cepservice.controller.CepController;
-import com.netshoes.cepservice.exception.InvalidCepException;
 import com.netshoes.cepservice.model.Cep;
 import com.netshoes.cepservice.service.CepService;
-import com.netshoes.cepservice.util.ValidationUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:**/WEB-INF/mvc-dispatcher-servlet.xml" })
@@ -36,9 +34,6 @@ public class CepControllerTest {
 
 	@Mock
 	private CepService cepService;
-
-	@Mock
-	private ValidationUtil validationUtil;
 
 	@InjectMocks
 	private CepController cepController;
@@ -73,26 +68,6 @@ public class CepControllerTest {
 
 		mockMvc.perform(post("/").contentType(MediaType.APPLICATION_JSON).content(body)).andDo(MockMvcResultHandlers.print())
 				.andExpect(status().isOk()).andExpect(jsonPath("$.id", is("06753160"))).andExpect(jsonPath("$.estado", is("SP")));
-	}
-
-	/**
-	 * Tests the system behavior with a given invalid cep
-	 * 
-	 * @throws Exception
-	 */
-	@SuppressWarnings("unchecked")
-	@Test
-	public void invalidCepTest() throws Exception {
-
-		Cep cepIn = new Cep();
-		cepIn.setId("abc123");
-
-		when(cepController.getCep(cepIn)).thenThrow(InvalidCepException.class);
-
-		String body = "{ \"id\": \"abc123\" }";
-
-		mockMvc.perform(post("/").contentType(MediaType.APPLICATION_JSON).content(body)).andDo(MockMvcResultHandlers.print())
-				.andExpect(status().isOk()).andExpect(jsonPath("$.statusMessage", is("CEP invalido")));
 	}
 
 	/**

@@ -31,13 +31,13 @@ curl -H "Accept: application/json" -H "Content-Type: application/json"  -X PUT -
 #### Get
 
 ```sh
-curl -H "Accept: application/json" -H "Content-Type: application/json"  -X GET -d http://host:port/crudservice/api/id
+curl -H "Accept: application/json" -H "Content-Type: application/json"  -X GET http://host:port/crudservice/api/id
 ```
 
 #### Delete
 
 ```sh
-curl -H "Accept: application/json" -H "Content-Type: application/json"  -X DELETE -d http://host:port/crudservice/api/id
+curl -H "Accept: application/json" -H "Content-Type: application/json"  -X DELETE http://host:port/crudservice/api/id
 ```
 
 ## Stream

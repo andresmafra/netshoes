@@ -1,6 +1,6 @@
 # Netshoes Test
 
-Códigos desenvolvidos para o teste da Netshoes. Módulos:
+Códigos desenvolvidos para o teste da Netshoes. Os módulos:
 
   - CepService
   - CrudService
